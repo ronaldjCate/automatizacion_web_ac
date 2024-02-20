@@ -17,18 +17,9 @@ steps:
   - script: |
       echo Add other tasks to build, test, and deploy your project.
       echo See https://aka.ms/yaml
+       webdriver.driver: chrome
     displayName: 'Run a multi-line script'
-  - script: |
-      webdriver.driver: chrome
-      if [ ! -f "src/test/resources/driver/chromedriver.exe" ]; then
-      echo "Chromedriver not found. Downloading..."
-      CHROME_VERSION=$(google-chrome --version | awk '{ print $3 }' | cut -d '.' -f1)
-      CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
-      wget -q --continue -P /usr/local/bin/ "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
-      unzip -o /usr/local/bin/chromedriver_linux64.zip -d /usr/local/bin/
-      chmod +x /usr/local/bin/chromedriver
-      fi
-    displayName: 'Check and download Chromedriver'
+  
     
 
   - task: Maven@3
