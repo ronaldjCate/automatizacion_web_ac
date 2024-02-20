@@ -19,6 +19,7 @@ steps:
       echo See https://aka.ms/yaml
     displayName: 'Run a multi-line script'
   - script: |
+      webdriver.driver: chrome
       if [ ! -f "src/test/resources/driver/chromedriver.exe" ]; then
       echo "Chromedriver not found. Downloading..."
       CHROME_VERSION=$(google-chrome --version | awk '{ print $3 }' | cut -d '.' -f1)
@@ -28,6 +29,7 @@ steps:
       chmod +x /usr/local/bin/chromedriver
       fi
     displayName: 'Check and download Chromedriver'
+    
 
   - task: Maven@3
     displayName: 'Run Cucumber tests'
@@ -37,4 +39,5 @@ steps:
       options: '-Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=@ValidarInicioSesionUsuario -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue=com.atlantic'
       javaHomeOption: 'JDKVersion'
       jdkVersionOption: '1.17'
+
       
