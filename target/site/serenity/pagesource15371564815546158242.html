@@ -1,0 +1,725 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html lang="en"&gt;<br/>
+ &lt;head&gt;&lt;!-- Required meta tags --&gt;<br/>
+  &lt;meta charset="utf-8"&gt;<br/>
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;&lt;!-- Bootstrap CSS --&gt;<br/>
+  &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"&gt;<br/>
+  &lt;link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css"&gt;<br/>
+  &lt;link rel="stylesheet" href="../css/general.css?version=09242021"&gt;<br/>
+  &lt;link rel="stylesheet" href="../css/kashio-iframe.css?version=07112023"&gt;<br/>
+  &lt;link rel="stylesheet" href="../css/icomoon/icomoon.css"&gt;<br/>
+  &lt;link href="https://fonts.googleapis.com/css?family=Cambay:700i|Sarabun:700i&amp;display=swap" rel="stylesheet"&gt;<br/>
+  &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;<br/>
+  &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""&gt;<br/>
+  &lt;link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&amp;display=swap" rel="stylesheet"&gt;<br/>
+  &lt;link rel="icon" type="image/x-icon" href="kashio_ico_v2.ico"&gt;<br/>
+  &lt;title&gt;Kashio Gateway r.1.3.3.5&lt;/title&gt;<br/>
+  &lt;script&gt;<br/>
+		//for ios ,android and web<br/>
+		function copyToClipboard() {<br/>
+				let textarea;<br/>
+				textarea = document.createElement('textarea');<br/>
+				textarea.setAttribute('readonly', true);<br/>
+				textarea.setAttribute('contenteditable', true);<br/>
+				textarea.style.position = 'fixed'; // prevent scroll from jumping to the bottom when focus is set.<br/>
+				textarea.value = document.getElementById("copyText").innerHTML;<br/>
+				document.body.appendChild(textarea);<br/>
+				textarea.select();<br/>
+<br/>
+				const range = document.createRange();<br/>
+				range.selectNodeContents(textarea);<br/>
+				const sel = window.getSelection();<br/>
+				sel.removeAllRanges();<br/>
+				sel.addRange(range);<br/>
+<br/>
+				textarea.setSelectionRange(0, textarea.value.length);<br/>
+				textarea.setSelectionRange(0, 999999); <br/>
+				result = document.execCommand('copy');<br/>
+				textarea.remove();<br/>
+			}<br/>
+&lt;/script&gt;<br/>
+  &lt;style&gt;<br/>
+	.copyIconImg{<br/>
+		width: 24px;<br/>
+		height: 24px;<br/>
+		margin-top: 4px;<br/>
+		cursor: pointer;<br/>
+	}<br/>
+	#kashio-flex {<br/>
+		flex-direction: row;<br/>
+   		 display: inline-flex;<br/>
+	}<br/>
+	#kashio-flex .icon {<br/>
+		margin-left: 15px;<br/>
+	}<br/>
+	@media(min-width:575px) and (max-width: 767px) {<br/>
+	#kashio-flex {<br/>
+    flex-direction: row;<br/>
+    display: block;<br/>
+	}<br/>
+	}<br/>
+	@media(min-width:1600px) {<br/>
+		.copyIconImg{<br/>
+		width: 25px;<br/>
+		height: 25px;<br/>
+		filter: invert(1);<br/>
+		margin-top: 8px;<br/>
+	}<br/>
+	}<br/>
+&lt;/style&gt;<br/>
+  &lt;meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"&gt;<br/>
+ &lt;/head&gt;<br/>
+ &lt;body&gt;&lt;!--	<br/>
+&lt;nav class="navbar navbar-dark bg-blue navbar-expand-lg &lt;?php if($mode=='iframe') { echo 'd-none'; }?&gt;"&gt;<br/>
+--&gt;<br/>
+  &lt;div class="container py-2"&gt;<br/>
+   &lt;section id="detalles" class=""&gt;<br/>
+    &lt;div class="container-fluid bg-white display-7 text-center logo-description-container"&gt;&lt;img src="../img/LogoKashioPNG.png" height="30" alt="" class="mb-2"&gt;<br/>
+     &lt;center class="slogan"&gt;<br/>
+      Paga fácil, seguro y con total comodidad<br/>
+     &lt;/center&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="row text-center m-0 k-info-service"&gt;<br/>
+     &lt;div class="col-6  p-3"&gt;&lt;small class="m-0"&gt;Empresa recaudadora&lt;/small&gt;<br/>
+      &lt;p class="m-0"&gt;KASHIO PERU S.A.C.&lt;/p&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="col-6 p-3"&gt;&lt;small class="m-0"&gt;Nombre del servicio&lt;/small&gt;<br/>
+      &lt;p class="m-0 kashio_service"&gt;KASHIO PERU SOLES&lt;/p&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;&lt;!-- ---- --&gt;<br/>
+    &lt;div class="row text-white text-center m-0 content_payment"&gt;<br/>
+     &lt;div class="col-12 col-sm-4 p-2 payment-code-container"&gt;<br/>
+      &lt;p class="m-0 payment-code-label"&gt;Tu código de pago es:&lt;/p&gt;<br/>
+      &lt;div id="kashio-flex"&gt;<br/>
+       &lt;div class="text"&gt;<br/>
+        &lt;p class="display-4 bold m-0 ktin" id="copyText"&gt;240473690497&lt;/p&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="icon"&gt;&lt;a tabindex="0" id="kashiopopover" onclick="copyToClipboard();" data-placement="top" data-content="Copiado a portapapeles" data-original-title="" title=""&gt; &lt;img src="../img/copy.svg" alt="Copy Img" class="copyIconImg"&gt; &lt;/a&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="col-12 col-sm-4 data-border p-2 total-amount-container"&gt;<br/>
+      &lt;p class="m-0 total-amount-label"&gt;Tu monto a pagar:&lt;/p&gt;<br/>
+      &lt;div&gt;<br/>
+       &lt;p class="display-4 bold m-0 symbol-amount mt-1"&gt;S/.&lt;/p&gt;<br/>
+       &lt;p class="display-4 bold m-0 amount mt-1"&gt;30.00&lt;/p&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="col-12 col-sm-4 p-2 time_expire expiration-date-container"&gt;&lt;!--<br/>
+				&lt;?php if($state=='active') { ?&gt;<br/>
+				--&gt;<br/>
+      &lt;p class="m-0 expiration-date-label"&gt;Vence en:&lt;/p&gt;<br/>
+      &lt;div class="d-flex justify-content-center countdown mt-1"&gt;<br/>
+       &lt;div class="days"&gt;<br/>
+        &lt;div class="show_days" style="display: none;"&gt;<br/>
+         &lt;p id="dias" class="display-4 bold m-0"&gt;00&lt;/p&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="label_days" style="vertical-align: text-bottom; display: none;"&gt;<br/>
+         &lt;p&gt;días&lt;/p&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="hours"&gt;<br/>
+        &lt;div class=""&gt;<br/>
+         &lt;p id="horas" class="display-4 bold m-0"&gt;03&lt;/p&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class=" display-4 bold p-0"&gt;<br/>
+         :<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class=""&gt;<br/>
+         &lt;p id="minutos" class="display-4 bold m-0"&gt;59&lt;/p&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class=" display-4 bold p-0"&gt;<br/>
+         :<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class=""&gt;<br/>
+         &lt;p id="segundos" class="display-4 bold m-0"&gt;53&lt;/p&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="label-hours" style="bottom: 0"&gt;<br/>
+         &lt;p class="m-0"&gt;horas&lt;/p&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;&lt;!--<br/>
+					&lt;div class="bg-success position-relative" style="vertical-align:top"&gt;<br/>
+						&lt;span class="position-absolute" style="bottom: 0"&gt;&nbsp;hrs&lt;/span&gt;<br/>
+					&lt;/div&gt;<br/>
+--&gt;<br/>
+      &lt;/div&gt;&lt;!-- <br/>
+				&lt;?php } else {  ?&gt;<br/>
+				<br/>
+					&lt;p class="m-0"&gt;Código&lt;/p&gt;<br/>
+				<br/>
+					&lt;div class="" &gt;<br/>
+						&lt;p id="" class="display-4 bold m-0"&gt;Expirado&lt;/p&gt;<br/>
+					&lt;/div&gt;<br/>
+				<br/>
+				&lt;?php } ?&gt;<br/>
+				--&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/section&gt;&lt;!--<br/>
+	&lt;section class="plataformas &lt;?php if($_GET['platform']!='0') { echo 'd-nonex' ;} ?&gt; "&gt;	<br/>
+	--&gt;<br/>
+   &lt;section class="plataformas "&gt;<br/>
+    &lt;div class="p-2 text-center instruction-one"&gt;<br/>
+     Conoce las instrucciones de pago de tus bancos, bodegas y agentes favoritos<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="row m-0 py-2 px-0 logos-container"&gt;<br/>
+     &lt;div class="col-logo col-6 col-sm-1"&gt;&lt;button id="btn-bcp" class="btn-logo active"&gt;&lt;img src="../img/logos/bcp.png?version=09242021" alt="bcp"&gt;&lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="col-logo col-6 col-sm-1"&gt;&lt;button id="btn-yape" class="btn-logo "&gt;&lt;img src="../img/logos/yape.png" alt="yape"&gt;&lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="col-logo col-6 col-sm-1"&gt;&lt;button id="btn-bbva" class="btn-logo"&gt;&lt;img src="../img/logos/bbva.png?version=09242021" alt="bbva"&gt;&lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="col-logo col-6 col-sm-1"&gt;&lt;button id="btn-interbank" class="btn-logo"&gt;&lt;img src="../img/logos/interbank.png?version=09242021" alt="interbank"&gt;&lt;/button&gt;<br/>
+     &lt;/div&gt;&lt;!--		  	&lt;div class="col-logo col-6 col-sm-1 content-logo-scotiabank"&gt;--&gt; &lt;!--				&lt;button id="btn-scotiabank" class="btn-logo"&gt;&lt;img src="../img/logos/scotiabank.png?version=09242021" alt="scotiabank"&gt;&lt;/button&gt;--&gt; &lt;!--			&lt;/div&gt;--&gt; &lt;!--<br/>
+			&lt;div class="col-logo col-6 col-sm-1"&gt;<br/>
+				&lt;button id="btn-rappibank" class="btn-logo"&gt;&lt;img src="../img/logos/rappibank-logo 1.png?version=09242021" alt="rappibank"&gt;&lt;/button&gt;<br/>
+			&lt;/div&gt;<br/>
+			--&gt;<br/>
+     &lt;div class="col-logo col-6 col-sm-1"&gt;&lt;button id="btn-kasnet" class="btn-logo"&gt;&lt;img src="../img/logos/kasnet.png?version=09242021" alt="kasnet"&gt;&lt;/button&gt;<br/>
+     &lt;/div&gt;&lt;!--<br/>
+            &lt;div class="col-logo col-6 col-sm-1"&gt;<br/>
+				&lt;button id="btn-tambo" class="btn-logo"&gt;&lt;img src="../img/logos/tambo.png?version=09242021" alt="tambo"&gt;&lt;/button&gt;<br/>
+			&lt;/div&gt;<br/>
+			--&gt;<br/>
+     &lt;div class="col-logo col-6 col-sm-1"&gt;&lt;button id="btn-caja-arequipa" class="btn-logo btn-logo-caja-arequipa"&gt;&lt;img src="../img/logos/caja-arequipa.svg" alt="caja-arequipa"&gt;&lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/section&gt;&lt;!-- plataformas --&gt;<br/>
+   &lt;section id="channels" class=" &lt;?php //if($_GET['platform']=='0') { echo 'd-none' ;} ?&gt; &lt;?php //if($_GET['channel']!='0') { echo 'd-none' ;} ?&gt;"&gt;<br/>
+    &lt;div class="instrucciones text-justify"&gt;&lt;!-- ##################################### INIT  BCP ####################################### --&gt;<br/>
+     &lt;div id="instrucciones-bcp" class=""&gt;<br/>
+      &lt;div class="instrucciones-titulo text-center bg-bcp text-white"&gt;<br/>
+       Pasos a seguir para pagar en &lt;span&gt;&lt;img src="../img/logos/bcp-inverse.png?version=09242021" alt=""&gt;&lt;/span&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;nav class="tabs"&gt;<br/>
+       &lt;div class="nav nav-tabs nav-fill" id="nav-tab-1" role="tablist"&gt;&lt;a class="nav-item nav-link active" id="bcp-channel-1-tab" data-toggle="tab" href="#bcp-channel-1" role="tab" aria-controls="bcp-channel-1" aria-selected="true"&gt;<br/>
+         &lt;svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="smartphone-icon"&gt;&lt;path d="M17 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt; &lt;path d="M12 18H12.01" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Banca Móvil&lt;/p&gt;&lt;/a&gt; &lt;a class="nav-item nav-link" id="bcp-channel-2-tab" data-toggle="tab" href="#bcp-channel-2" role="tab" aria-controls="bcp-channel-2" aria-selected="false"&gt;<br/>
+         &lt;svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="monitor-icon"&gt;&lt;path d="M20.125 3H4.125C3.02043 3 2.125 3.89543 2.125 5V15C2.125 16.1046 3.02043 17 4.125 17H20.125C21.2296 17 22.125 16.1046 22.125 15V5C22.125 3.89543 21.2296 3 20.125 3Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt; &lt;path d="M8.125 21H16.125" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt; &lt;path d="M12.125 17V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Banca Web&lt;/p&gt;&lt;/a&gt; &lt;a class="nav-item nav-link" id="bcp-channel-3-tab" data-toggle="tab" href="#bcp-channel-3" role="tab" aria-controls="bcp-channel-3" aria-selected="false"&gt;<br/>
+         &lt;svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="credit-card-icon"&gt;&lt;g clip-path="url(#clip0_368_2660)"&gt;<br/>
+           &lt;path d="M21.0942 2H4.65578C4.19691 2 3.79693 2.3123 3.68563 2.75746L2.18563 8.75746C2.02785 9.38861 2.50514 10 3.15571 10H3.875V20H21.875V10H22.5942C23.2448 10 23.7222 9.38861 23.5644 8.75746L22.0644 2.75746C21.9531 2.3123 21.5531 2 21.0942 2Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M22.875 10L21.8231 10C21.2308 10 20.6776 10.296 20.3491 10.7889V10.7889C19.6478 11.8408 18.1022 11.8408 17.4009 10.7889L17.375 10.75C17.1371 10.3932 16.6129 10.3932 16.375 10.75V10.75C15.6614 11.8204 14.0886 11.8204 13.375 10.75V10.75C13.1371 10.3932 12.6129 10.3932 12.375 10.75V10.75C11.6614 11.8204 10.0886 11.8204 9.375 10.75V10.75C9.13714 10.3932 8.61286 10.3932 8.375 10.75L8.34907 10.7889C7.64783 11.8408 6.10217 11.8408 5.40093 10.7889V10.7889C5.07236 10.296 4.51921 10 3.92686 10L3.875 10" stroke="#C2C9D6" stroke-width="2"&gt;&lt;/path&gt;<br/>
+          &lt;/g&gt; &lt;defs&gt;<br/>
+           &lt;clippath id="clip0_368_2660"&gt;<br/>
+            &lt;rect width="24" height="24" fill="white" transform="translate(0.875)"&gt;&lt;/rect&gt;<br/>
+           &lt;/clippath&gt;<br/>
+          &lt;/defs&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Agentes y Bodegas&lt;/p&gt;&lt;/a&gt; &lt;a class="nav-item nav-link" id="bcp-channel-4-tab" data-toggle="tab" href="#bcp-channel-4" role="tab" aria-controls="bcp-channel-4" aria-selected="false"&gt;<br/>
+         &lt;svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="home-icon"&gt;&lt;g clip-path="url(#clip0_368_2663)"&gt;<br/>
+           &lt;path d="M12.375 1L1.875 9H22.875L12.375 1Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M3.875 21V9H20.875V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M7.875 21V9H16.875V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M1.875 22H22.875" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+          &lt;/g&gt; &lt;defs&gt;<br/>
+           &lt;clippath id="clip0_368_2663"&gt;<br/>
+            &lt;rect width="24" height="24" fill="white" transform="translate(0.125)"&gt;&lt;/rect&gt;<br/>
+           &lt;/clippath&gt;<br/>
+          &lt;/defs&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Agencias Bancarias&lt;/p&gt;&lt;/a&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/nav&gt;<br/>
+      &lt;div id="nav-tabContent" class="tab-content p-3"&gt;<br/>
+       &lt;div class="tab-pane fade show active width-info" id="bcp-channel-1" role="tabpanel" aria-labelledby="nav-1-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Banca Móvil&lt;/h3&gt;<br/>
+        &lt;ol id="info-bcp-text" class=""&gt;<br/>
+         &lt;li&gt;Ingresa a la aplicación móvil del BCP, accede al menú principal y selecciona la opción &lt;b&gt;"Pagar Servicios".&lt;/b&gt;&lt;/li&gt;<br/>
+         &lt;li&gt;Selecciona la opción &lt;b&gt;"Buscar en la sección".&lt;/b&gt;&lt;/li&gt;<br/>
+         &lt;li&gt;Busca "Kashio Perú", elige Kashio Perú Soles o Dólares e ingresa tu código de pago.&lt;/li&gt;<br/>
+         &lt;li&gt;Selecciona la deuda a pagar, confirma y ¡Listo!&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="tab-pane fade width-info " id="bcp-channel-2" role="tabpanel" aria-labelledby="nav-2-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Banca Web&lt;/h3&gt;<br/>
+        &lt;ol id="info-bcp-text1" class=""&gt;<br/>
+         &lt;li&gt;Ingresa a tu banca web BCP desde: https://www.viabcp.com&lt;/li&gt;<br/>
+         &lt;li&gt;Ve al menú de "Pagos", y selecciona &lt;b&gt;"Pagar un servicio".&lt;/b&gt;&lt;/li&gt;<br/>
+         &lt;li&gt;Busca "Kashio Perú", elige Kashio Perú Soles o Dólares e ingresa tu código de pago.&lt;/li&gt;<br/>
+         &lt;li&gt;Selecciona la deuda a pagar, confirma y ¡Listo!&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="tab-pane fade width-info " id="bcp-channel-3" role="tabpanel" aria-labelledby="nav-3-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Agentes&lt;/h3&gt;<br/>
+        &lt;ol id="info-bcp-text2" class=""&gt;<br/>
+         &lt;li&gt;Acércate a un agente del BCP e indica que deseas pagar al servicio de recaudación de Kashio Perú.&lt;/li&gt;<br/>
+         &lt;li&gt;Indica el Código de Agente de Kashio: &lt;strong&gt;15813&lt;/strong&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;Indica tu código de pago.&lt;/li&gt;<br/>
+         &lt;li&gt;Indica monto total, moneda a pagar y ¡Listo!&lt;/li&gt;<br/>
+         &lt;li&gt;Recibe el voucher de pago de la operación.&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="tab-pane fade width-info" id="bcp-channel-4" role="tabpanel" aria-labelledby="nav-4-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Ventanilla&lt;/h3&gt;<br/>
+        &lt;ol id="info-bcp-text3" class=""&gt;<br/>
+         &lt;li&gt;Acércate a una oficina o agencia del BCP e indica que deseas pagar al servicio de recaudación de Kashio.&lt;/li&gt;<br/>
+         &lt;li&gt;Elije el tipo de moneda a pagar y proporciona el número de tu DNI, RUC, teléfono o código único, según corresponda.&lt;/li&gt;<br/>
+         &lt;li&gt;Elije la deuda que deseas pagar y listo. Recibe el voucher de pago de la operación.&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div class="bg-lightgray border-bluex p-2 extra-info"&gt;&lt;small&gt; (*) Pagos en ventanilla de los bancos BCP e Interbank tendrán un cargo por comisión bancaria de S/.3.60. &lt;br&gt;<br/>
+         Si tuviera algún problema con su pago vía Kashio, por favor escribir a soporte@kashio.net &lt;/small&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;&lt;!-- ##################################### FIN BCP ####################################### --&gt; &lt;!-- ##################################### INIT YAPE ####################################### --&gt;<br/>
+     &lt;div id="instrucciones-yape" class="d-none"&gt;<br/>
+      &lt;div class="instrucciones-titulo text-center bg-yape text-white"&gt;<br/>
+       Pasos a seguir para pagar en &lt;span&gt;&lt;img src="../img/logos/yape-inverse.png?version=09242021" alt=""&gt;&lt;/span&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;nav class="tabs"&gt;<br/>
+       &lt;div class="nav nav-tabs nav-fill" id="nav-tab-1a" role="tablist"&gt;&lt;a class="nav-item nav-link active" id="bcp-channel-1-tab" data-toggle="tab" href="#bcp-channel-1" role="tab" aria-controls="bcp-channel-1" aria-selected="true"&gt;<br/>
+         &lt;svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="smartphone-icon"&gt;&lt;path d="M17 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt; &lt;path d="M12 18H12.01" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Móvil&lt;/p&gt;&lt;/a&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/nav&gt;<br/>
+      &lt;div id="nav-tabContent" class="tab-content p-3"&gt;<br/>
+       &lt;div class="tab-pane fade show active width-info " id="yape-channel-3" role="tabpanel" aria-labelledby="nav-3-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Agentes&lt;/h3&gt;<br/>
+        &lt;ol id="info-yape-text" class=""&gt;<br/>
+         &lt;li&gt;En tu aplicativo &lt;b&gt;Yape&lt;/b&gt;, ingresa a &lt;b&gt;Yapear Servicios&lt;/b&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;Ubica Kashio en la categoría &lt;b&gt;"Compras Online"&lt;/b&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;Coloca tu &lt;b&gt;código de pago&lt;/b&gt; y yapea!&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;&lt;!-- ##################################### FIN YAPE ####################################### --&gt; &lt;!-- ############################## INIT BBVA ########################################## --&gt;<br/>
+     &lt;div id="instrucciones-bbva" class="d-none"&gt;<br/>
+      &lt;div class="instrucciones-titulo text-center bg-bbva text-white"&gt;<br/>
+       Pasos a seguir para pagar en &lt;span&gt;&lt;img src="../img/logos/bbva-inverse.png?version=09242021" alt=""&gt;&lt;/span&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;nav class="tabs"&gt;<br/>
+       &lt;div class="nav nav-tabs nav-fill" id="nav-tab-1" role="tablist"&gt;&lt;a class="nav-item nav-link active" id="bbva-channel-1-tab" data-toggle="tab" href="#bbva-channel-1" role="tab" aria-controls="bbva-channel-1" aria-selected="true"&gt;<br/>
+         &lt;svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="smartphone-icon"&gt;&lt;path d="M17 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt; &lt;path d="M12 18H12.01" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Banca Móvil&lt;/p&gt;&lt;/a&gt; &lt;a class="nav-item nav-link" id="bbva-channel-2-tab" data-toggle="tab" href="#bbva-channel-2" role="tab" aria-controls="bbva-channel-2" aria-selected="false"&gt;<br/>
+         &lt;svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="monitor-icon"&gt;&lt;path d="M20.125 3H4.125C3.02043 3 2.125 3.89543 2.125 5V15C2.125 16.1046 3.02043 17 4.125 17H20.125C21.2296 17 22.125 16.1046 22.125 15V5C22.125 3.89543 21.2296 3 20.125 3Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt; &lt;path d="M8.125 21H16.125" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt; &lt;path d="M12.125 17V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Banca Web&lt;/p&gt;&lt;/a&gt; &lt;a class="nav-item nav-link" id="bbva-channel-3-tab" data-toggle="tab" href="#bbva-channel-3" role="tab" aria-controls="bbva-channel-3" aria-selected="false"&gt;<br/>
+         &lt;svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="credit-card-icon"&gt;&lt;g clip-path="url(#clip0_368_2660)"&gt;<br/>
+           &lt;path d="M21.0942 2H4.65578C4.19691 2 3.79693 2.3123 3.68563 2.75746L2.18563 8.75746C2.02785 9.38861 2.50514 10 3.15571 10H3.875V20H21.875V10H22.5942C23.2448 10 23.7222 9.38861 23.5644 8.75746L22.0644 2.75746C21.9531 2.3123 21.5531 2 21.0942 2Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M22.875 10L21.8231 10C21.2308 10 20.6776 10.296 20.3491 10.7889V10.7889C19.6478 11.8408 18.1022 11.8408 17.4009 10.7889L17.375 10.75C17.1371 10.3932 16.6129 10.3932 16.375 10.75V10.75C15.6614 11.8204 14.0886 11.8204 13.375 10.75V10.75C13.1371 10.3932 12.6129 10.3932 12.375 10.75V10.75C11.6614 11.8204 10.0886 11.8204 9.375 10.75V10.75C9.13714 10.3932 8.61286 10.3932 8.375 10.75L8.34907 10.7889C7.64783 11.8408 6.10217 11.8408 5.40093 10.7889V10.7889C5.07236 10.296 4.51921 10 3.92686 10L3.875 10" stroke="#C2C9D6" stroke-width="2"&gt;&lt;/path&gt;<br/>
+          &lt;/g&gt; &lt;defs&gt;<br/>
+           &lt;clippath id="clip0_368_2660"&gt;<br/>
+            &lt;rect width="24" height="24" fill="white" transform="translate(0.875)"&gt;&lt;/rect&gt;<br/>
+           &lt;/clippath&gt;<br/>
+          &lt;/defs&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Agentes y Bodegas&lt;/p&gt;&lt;/a&gt; &lt;a class="nav-item nav-link" id="bbva-channel-4-tab" data-toggle="tab" href="#bbva-channel-4" role="tab" aria-controls="bbva-channel-4" aria-selected="false"&gt;<br/>
+         &lt;svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="home-icon"&gt;&lt;g clip-path="url(#clip0_368_2663)"&gt;<br/>
+           &lt;path d="M12.375 1L1.875 9H22.875L12.375 1Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M3.875 21V9H20.875V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M7.875 21V9H16.875V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M1.875 22H22.875" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+          &lt;/g&gt; &lt;defs&gt;<br/>
+           &lt;clippath id="clip0_368_2663"&gt;<br/>
+            &lt;rect width="24" height="24" fill="white" transform="translate(0.125)"&gt;&lt;/rect&gt;<br/>
+           &lt;/clippath&gt;<br/>
+          &lt;/defs&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Agencias Bancarias&lt;/p&gt;&lt;/a&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/nav&gt;<br/>
+      &lt;div id="nav-tabContent" class="tab-content p-3"&gt;<br/>
+       &lt;div class="tab-pane fade show active" id="bbva-channel-1" role="tabpanel" aria-labelledby="nav-1-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Banca Móvil&lt;/h3&gt;<br/>
+        &lt;ol&gt;<br/>
+         &lt;li&gt;Ingresa a la aplicación móvil del BBVA, accede al menú principal y selecciona tu cuenta bancaria.&lt;/li&gt;<br/>
+         &lt;li&gt;Elige la opción &lt;b&gt;“Pagar servicio”&lt;/b&gt; y selecciona &lt;b&gt;"Agregar servicio a pagar".&lt;/b&gt;&lt;/li&gt;<br/>
+         &lt;li&gt;Busca "Kashio Perú", elige Kashio Perú Soles o Dólares e ingresa tu código de pago.&lt;/li&gt;<br/>
+         &lt;li&gt;Selecciona la deuda a pagar, confirma y ¡Listo!&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="tab-pane fade" id="bbva-channel-2" role="tabpanel" aria-labelledby="nav-2-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Banca Web&lt;/h3&gt;<br/>
+        &lt;ol&gt;<br/>
+         &lt;li&gt;Ingresa a tu banca web BBVA desde: https://www.bbva.pe&lt;/li&gt;<br/>
+         &lt;li&gt;Ve a tu cuenta, pulsa el botón "Quiero" y selecciona la opción &lt;b&gt;"Pagar servicio".&lt;/b&gt;&lt;/li&gt;<br/>
+         &lt;li&gt;Selecciona la opción &lt;b&gt;"Instituciones y empresas"&lt;/b&gt; y pulsa la opción &lt;b&gt;"Nombre".&lt;/b&gt;&lt;/li&gt;<br/>
+         &lt;li&gt;Busca "Kashio Perú", elige Kashio Perú Soles o Dólares, pulsa siguiente e ingresa tu código de pago&lt;/li&gt;<br/>
+         &lt;li&gt;Selecciona la deuda a pagar, confirma y ¡Listo!&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="tab-pane fade" id="bbva-channel-3" role="tabpanel" aria-labelledby="nav-3-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Agentes&lt;/h3&gt;<br/>
+        &lt;ol&gt;<br/>
+         &lt;li&gt;Acércate a un agente del BBVA e indica que deseas pagar al servicio de recaudación de Kashio Perú.&lt;/li&gt;<br/>
+         &lt;li&gt;Indica el Código de Agente de Kashio:&lt;/li&gt;<br/>
+         &lt;ul&gt;<br/>
+          Pago en Soles: &lt;strong&gt; 11140 &lt;/strong&gt;<br/>
+         &lt;/ul&gt;<br/>
+         &lt;ul&gt;<br/>
+          Pago en Dólares:&lt;strong&gt; 11141 &lt;/strong&gt;<br/>
+         &lt;/ul&gt;<br/>
+         &lt;li&gt;Indica tu código de pago.&lt;/li&gt;<br/>
+         &lt;li&gt;Indica monto total, moneda a pagar y ¡Listo!&lt;/li&gt;<br/>
+         &lt;li&gt;Recibe el voucher de pago de la operación.&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="tab-pane fade" id="bbva-channel-4" role="tabpanel" aria-labelledby="nav-4-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Ventanilla&lt;/h3&gt;<br/>
+        &lt;ol&gt;<br/>
+         &lt;li&gt;Acércate a una oficina o agencia del BBVA e indica que deseas pagar al servicio de recaudación de Kashio.&lt;/li&gt;<br/>
+         &lt;li&gt;Elije el tipo de moneda en la que quieres pagar.&lt;/li&gt;<br/>
+         &lt;li&gt;Proporciona tu número de DNI, RUC, teléfono o código único según corresponda y elije la deuda que quieres pagar.&lt;/li&gt;<br/>
+         &lt;li&gt;Recibe el voucher de pago de la operación.&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;&lt;!-- ##################################### FIN BBVA ####################################### --&gt; &lt;!-- ##################################### INIT IBK ####################################### --&gt;<br/>
+     &lt;div id="instrucciones-interbank" class="d-none"&gt;<br/>
+      &lt;div class="instrucciones-titulo text-center bg-interbank text-white"&gt;<br/>
+       Pasos a seguir para pagar en &lt;span&gt;&lt;img src="../img/logos/interbank-inverse.png?version=09242021" alt=""&gt;&lt;/span&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;nav class="tabs"&gt;<br/>
+       &lt;div class="nav nav-tabs nav-fill" id="nav-tab-1" role="tablist"&gt;&lt;a class="nav-item nav-link active" id="interbank-channel-1-tab" data-toggle="tab" href="#interbank-channel-1" role="tab" aria-controls="interbank-channel-1" aria-selected="true"&gt;<br/>
+         &lt;svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="smartphone-icon"&gt;&lt;path d="M17 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt; &lt;path d="M12 18H12.01" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Banca Móvil&lt;/p&gt;&lt;/a&gt; &lt;a class="nav-item nav-link" id="interbank-channel-2-tab" data-toggle="tab" href="#interbank-channel-2" role="tab" aria-controls="interbank-channel-2" aria-selected="false"&gt;<br/>
+         &lt;svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="monitor-icon"&gt;&lt;path d="M20.125 3H4.125C3.02043 3 2.125 3.89543 2.125 5V15C2.125 16.1046 3.02043 17 4.125 17H20.125C21.2296 17 22.125 16.1046 22.125 15V5C22.125 3.89543 21.2296 3 20.125 3Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt; &lt;path d="M8.125 21H16.125" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt; &lt;path d="M12.125 17V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Banca Web&lt;/p&gt;&lt;/a&gt; &lt;a class="nav-item nav-link" id="interbank-channel-3-tab" data-toggle="tab" href="#interbank-channel-3" role="tab" aria-controls="interbank-channel-3" aria-selected="false"&gt;<br/>
+         &lt;svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="credit-card-icon"&gt;&lt;g clip-path="url(#clip0_368_2660)"&gt;<br/>
+           &lt;path d="M21.0942 2H4.65578C4.19691 2 3.79693 2.3123 3.68563 2.75746L2.18563 8.75746C2.02785 9.38861 2.50514 10 3.15571 10H3.875V20H21.875V10H22.5942C23.2448 10 23.7222 9.38861 23.5644 8.75746L22.0644 2.75746C21.9531 2.3123 21.5531 2 21.0942 2Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M22.875 10L21.8231 10C21.2308 10 20.6776 10.296 20.3491 10.7889V10.7889C19.6478 11.8408 18.1022 11.8408 17.4009 10.7889L17.375 10.75C17.1371 10.3932 16.6129 10.3932 16.375 10.75V10.75C15.6614 11.8204 14.0886 11.8204 13.375 10.75V10.75C13.1371 10.3932 12.6129 10.3932 12.375 10.75V10.75C11.6614 11.8204 10.0886 11.8204 9.375 10.75V10.75C9.13714 10.3932 8.61286 10.3932 8.375 10.75L8.34907 10.7889C7.64783 11.8408 6.10217 11.8408 5.40093 10.7889V10.7889C5.07236 10.296 4.51921 10 3.92686 10L3.875 10" stroke="#C2C9D6" stroke-width="2"&gt;&lt;/path&gt;<br/>
+          &lt;/g&gt; &lt;defs&gt;<br/>
+           &lt;clippath id="clip0_368_2660"&gt;<br/>
+            &lt;rect width="24" height="24" fill="white" transform="translate(0.875)"&gt;&lt;/rect&gt;<br/>
+           &lt;/clippath&gt;<br/>
+          &lt;/defs&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Agentes y Bodegas&lt;/p&gt;&lt;/a&gt; &lt;a class="nav-item nav-link" id="interbank-channel-4-tab" data-toggle="tab" href="#interbank-channel-4" role="tab" aria-controls="interbank-channel-4" aria-selected="false"&gt;<br/>
+         &lt;svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="home-icon"&gt;&lt;g clip-path="url(#clip0_368_2663)"&gt;<br/>
+           &lt;path d="M12.375 1L1.875 9H22.875L12.375 1Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M3.875 21V9H20.875V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M7.875 21V9H16.875V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M1.875 22H22.875" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+          &lt;/g&gt; &lt;defs&gt;<br/>
+           &lt;clippath id="clip0_368_2663"&gt;<br/>
+            &lt;rect width="24" height="24" fill="white" transform="translate(0.125)"&gt;&lt;/rect&gt;<br/>
+           &lt;/clippath&gt;<br/>
+          &lt;/defs&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Agencias Bancarias&lt;/p&gt;&lt;/a&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/nav&gt;<br/>
+      &lt;div id="nav-tabContent" class="tab-content p-3"&gt;<br/>
+       &lt;div class="tab-pane fade show active" id="interbank-channel-1" role="tabpanel" aria-labelledby="nav-1-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Banca Móvil&lt;/h3&gt;<br/>
+        &lt;ol&gt;<br/>
+         &lt;li&gt;Ingresa a la aplicación móvil de Interbank.&lt;/li&gt;<br/>
+         &lt;li&gt;Selecciona la opción &lt;b&gt;"Operaciones"&lt;/b&gt; y elige la opción &lt;b&gt;"Servicios".&lt;/b&gt;&lt;/li&gt;<br/>
+         &lt;li&gt;Selecciona "Pago a institución o empresa".&lt;/li&gt;<br/>
+         &lt;li&gt;Busca "Kashio Perú", elige Kashio Perú Soles o Dólares e ingresa tu código de pago.&lt;/li&gt;<br/>
+         &lt;li&gt;Selecciona la deuda a pagar, confirma y ¡Listo!&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="tab-pane fade" id="interbank-channel-2" role="tabpanel" aria-labelledby="nav-2-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Banca Web&lt;/h3&gt;<br/>
+        &lt;ol&gt;<br/>
+         &lt;li&gt;Ingresa a tu banca web Interbank desde: https://interbank.pe&lt;/li&gt;<br/>
+         &lt;li&gt;Selecciona "Mis operaciones" y eligen la opción &lt;b&gt;"Pago o Recarga".&lt;/b&gt;&lt;/li&gt;<br/>
+         &lt;li&gt;Selecciona "Pago a institución o empresa".&lt;/li&gt;<br/>
+         &lt;li&gt;Busca "Kashio Perú", elige Kashio Perú Soles o Dólares e ingresa tu código de pago.&lt;/li&gt;<br/>
+         &lt;li&gt;Selecciona la deuda a pagar, confirma y ¡Listo!&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="tab-pane fade" id="interbank-channel-3" role="tabpanel" aria-labelledby="nav-3-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Agentes&lt;/h3&gt;<br/>
+        &lt;ol&gt;<br/>
+         &lt;li&gt;Acércate a un agente de Interbank e indica que deseas pagar al servicio de recaudación de Kashio Perú.&lt;/li&gt;<br/>
+         &lt;li&gt;Indica el Código de Agente de Kashio: <br/>
+          &lt;ul&gt;<br/>
+           Pago en Soles: &lt;strong&gt; 0791501 &lt;/strong&gt;<br/>
+          &lt;/ul&gt;<br/>
+          &lt;ul&gt;<br/>
+           Pago en Dólares:&lt;strong&gt; 0791502 &lt;/strong&gt;<br/>
+          &lt;/ul&gt;&lt;/li&gt;<br/>
+         &lt;li&gt;Indica tu código de pago.&lt;/li&gt;<br/>
+         &lt;li&gt;Indica monto total, moneda a pagar y ¡Listo!&lt;/li&gt;<br/>
+         &lt;li&gt;Recibe el voucher de pago de la operación.&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="tab-pane fade" id="interbank-channel-4" role="tabpanel" aria-labelledby="nav-4-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Ventanilla&lt;/h3&gt;<br/>
+        &lt;ol&gt;<br/>
+         &lt;li&gt;Acércate a una oficina o agencia del Interbank e indica que deseas pagar al servicio de recaudación de Kashio.&lt;/li&gt;<br/>
+         &lt;li&gt;Elige la moneda a pagar y proporciona tu número de DNI, RUC, teléfono o código único según corresponda.&lt;/li&gt;<br/>
+         &lt;li&gt;Elije las deudas a pagar y listo.&lt;/li&gt;<br/>
+         &lt;li&gt;Recibe el voucher de pago de la operación.&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div class="bg-lightgray border-bluex p-2"&gt;&lt;small&gt; (*) Pagos en ventanilla de los bancos BCP e Interbank tendrán un cargo por comisión bancaria de S/.3.60. &lt;br&gt;<br/>
+         Si tuviera algún problema con su pago vía Kashio, por favor escribir a soporte@kashio.net &lt;/small&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;&lt;!-- ##################################### FIN IBK ####################################### --&gt; &lt;!--			&lt;!&ndash; ##################################### INIT SBK ####################################### &ndash;&gt; --&gt; &lt;!--				&lt;div id="instrucciones-scotiabank" class="d-none"&gt; --&gt; &lt;!--					--&gt; &lt;!--					&lt;div class="instrucciones-titulo text-center bg-scotiabank text-white--&gt; &lt;!--					"&gt;--&gt; &lt;!--						Pasos a seguir para pagar en &lt;span&gt;&lt;img src="../img/logos/scotiabank-inverse.png?version=09242021" alt=""&gt;&lt;/span&gt;--&gt; &lt;!--					&lt;/div&gt;			--&gt; &lt;!--					--&gt; &lt;!--					&lt;nav class="tabs"&gt;--&gt; &lt;!--						&lt;div class="nav nav-tabs nav-fill" id="nav-tab-1" role="tablist"&gt;--&gt; &lt;!--							&lt;a class="nav-item nav-link active" id="scotiabank-channel-1-tab" data-toggle="tab" href="#scotiabank-channel-1" role="tab" aria-controls="scotiabank-channel-1" aria-selected="true"&gt;--&gt; &lt;!--								&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="smartphone-icon"&gt;--&gt; &lt;!--									&lt;path--&gt; &lt;!--										d="M17 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2Z"--&gt; &lt;!--										stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /&gt;--&gt; &lt;!--									&lt;path d="M12 18H12.01" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round"--&gt; &lt;!--										stroke-linejoin="round" /&gt;--&gt; &lt;!--								&lt;/svg&gt;--&gt; &lt;!--								&lt;p class="d-none d-sm-inline"&gt;Banca Móvil&lt;/p&gt;						--&gt; &lt;!--							&lt;/a&gt;--&gt; &lt;!--							&lt;a class="nav-item nav-link" id="scotiabank-channel-2-tab" data-toggle="tab" href="#scotiabank-channel-2" role="tab" aria-controls="scotiabank-channel-2" aria-selected="false"&gt;--&gt; &lt;!--								&lt;svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="monitor-icon"&gt;--&gt; &lt;!--									&lt;path--&gt; &lt;!--										d="M20.125 3H4.125C3.02043 3 2.125 3.89543 2.125 5V15C2.125 16.1046 3.02043 17 4.125 17H20.125C21.2296 17 22.125 16.1046 22.125 15V5C22.125 3.89543 21.2296 3 20.125 3Z"--&gt; &lt;!--										stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /&gt;--&gt; &lt;!--									&lt;path d="M8.125 21H16.125" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /&gt;--&gt; &lt;!--									&lt;path d="M12.125 17V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /&gt;--&gt; &lt;!--								&lt;/svg&gt;--&gt; &lt;!--								&lt;p class="d-none d-sm-inline"&gt;Banca Web&lt;/p&gt;--&gt; &lt;!--							&lt;/a&gt;--&gt; &lt;!--							&lt;a class="nav-item nav-link" id="scotiabank-channel-3-tab" data-toggle="tab" href="#scotiabank-channel-3" role="tab" aria-controls="scotiabank-channel-3" aria-selected="false"&gt;--&gt; &lt;!--								&lt;svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="credit-card-icon"&gt;--&gt; &lt;!--									&lt;g clip-path="url(#clip0_368_2660)"&gt;--&gt; &lt;!--										&lt;path--&gt; &lt;!--											d="M21.0942 2H4.65578C4.19691 2 3.79693 2.3123 3.68563 2.75746L2.18563 8.75746C2.02785 9.38861 2.50514 10 3.15571 10H3.875V20H21.875V10H22.5942C23.2448 10 23.7222 9.38861 23.5644 8.75746L22.0644 2.75746C21.9531 2.3123 21.5531 2 21.0942 2Z"--&gt; &lt;!--											stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /&gt;--&gt; &lt;!--										&lt;path--&gt; &lt;!--											d="M22.875 10L21.8231 10C21.2308 10 20.6776 10.296 20.3491 10.7889V10.7889C19.6478 11.8408 18.1022 11.8408 17.4009 10.7889L17.375 10.75C17.1371 10.3932 16.6129 10.3932 16.375 10.75V10.75C15.6614 11.8204 14.0886 11.8204 13.375 10.75V10.75C13.1371 10.3932 12.6129 10.3932 12.375 10.75V10.75C11.6614 11.8204 10.0886 11.8204 9.375 10.75V10.75C9.13714 10.3932 8.61286 10.3932 8.375 10.75L8.34907 10.7889C7.64783 11.8408 6.10217 11.8408 5.40093 10.7889V10.7889C5.07236 10.296 4.51921 10 3.92686 10L3.875 10"--&gt; &lt;!--											stroke="#C2C9D6" stroke-width="2" /&gt;--&gt; &lt;!--									&lt;/g&gt;--&gt; &lt;!--									&lt;defs&gt;--&gt; &lt;!--										&lt;clipPath id="clip0_368_2660"&gt;--&gt; &lt;!--											&lt;rect width="24" height="24" fill="white" transform="translate(0.875)" /&gt;--&gt; &lt;!--										&lt;/clipPath&gt;--&gt; &lt;!--									&lt;/defs&gt;--&gt; &lt;!--								&lt;/svg&gt;--&gt; &lt;!--								&lt;p class="d-none d-sm-inline"&gt;Agentes y Bodegas&lt;/p&gt;--&gt; &lt;!--							&lt;/a&gt;--&gt; &lt;!--							&lt;a class="nav-item nav-link" id="scotiabank-channel-4-tab" data-toggle="tab" href="#scotiabank-channel-4" role="tab" aria-controls="scotiabank-channel-4" aria-selected="false"&gt;--&gt; &lt;!--								&lt;svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="home-icon"&gt;--&gt; &lt;!--									&lt;g clip-path="url(#clip0_368_2663)"&gt;--&gt; &lt;!--										&lt;path d="M12.375 1L1.875 9H22.875L12.375 1Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round"--&gt; &lt;!--											stroke-linejoin="round" /&gt;--&gt; &lt;!--										&lt;path d="M3.875 21V9H20.875V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round"--&gt; &lt;!--											stroke-linejoin="round" /&gt;--&gt; &lt;!--										&lt;path d="M7.875 21V9H16.875V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round"--&gt; &lt;!--											stroke-linejoin="round" /&gt;--&gt; &lt;!--										&lt;path d="M1.875 22H22.875" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /&gt;--&gt; &lt;!--									&lt;/g&gt;--&gt; &lt;!--									&lt;defs&gt;--&gt; &lt;!--										&lt;clipPath id="clip0_368_2663"&gt;--&gt; &lt;!--											&lt;rect width="24" height="24" fill="white" transform="translate(0.125)" /&gt;--&gt; &lt;!--										&lt;/clipPath&gt;--&gt; &lt;!--									&lt;/defs&gt;--&gt; &lt;!--								&lt;/svg&gt;--&gt; &lt;!--								&lt;p class="d-none d-sm-inline"&gt;Agencias Bancarias&lt;/p&gt;--&gt; &lt;!--							&lt;/a&gt;--&gt; &lt;!--						&lt;/div&gt;--&gt; &lt;!--					&lt;/nav&gt;--&gt; &lt;!--					&lt;div id="nav-tabContent" class="tab-content p-3" &gt;--&gt; &lt;!--						&lt;div class="tab-pane fade show active" id="scotiabank-channel-1" role="tabpanel" aria-labelledby="nav-1-tab"&gt;--&gt; &lt;!--							&lt;h3 class="d-none"&gt;Banca Móvil&lt;/h3&gt;--&gt; &lt;!--							&lt;ol&gt;--&gt; &lt;!--								&lt;li&gt;Ingresa a la aplicación móvil de Scotiabank.&lt;/li&gt;--&gt; &lt;!--								&lt;li&gt;Selecciona la opción &lt;b&gt;"Quiero"&lt;/b&gt; y elige la opción &lt;b&gt;"Pagar".&lt;/b&gt;&lt;/li&gt;--&gt; &lt;!--								&lt;li&gt;Selecciona "Servicios o Instituciones". &lt;/li&gt;--&gt; &lt;!--								&lt;li&gt;Busca "Kashio Perú", elige Kashio Perú Soles o Dólares e ingresa tu código de pago.&lt;/li&gt;--&gt; &lt;!--								&lt;li&gt;Selecciona la deuda a pagar, confirma y ¡Listo!&lt;/li&gt;--&gt; &lt;!--							&lt;/ol&gt;--&gt; &lt;!--						&lt;/div&gt;--&gt; &lt;!--					  &lt;div class="tab-pane fade" id="scotiabank-channel-2" role="tabpanel" aria-labelledby="nav-2-tab"&gt;--&gt; &lt;!--						&lt;h3 class="d-none"&gt;Banca Web&lt;/h3&gt;--&gt; &lt;!--							&lt;ol&gt;--&gt; &lt;!--								&lt;li&gt;Ingresa a tu banca web Scotiabank desde: https://mi.scotiabank.com.pe/&lt;/li&gt;--&gt; &lt;!--								&lt;li&gt;Elige la opción &lt;b&gt;"Pagar"&lt;/b&gt; y selecciona la opción &lt;b&gt;"Servicios o Instituciones".&lt;/b&gt; &lt;/li&gt;--&gt; &lt;!--								&lt;li&gt;Busca "Kashio Perú", elige Kashio Perú Soles o Dólares e ingresa tu código de pago.&lt;/li&gt;--&gt; &lt;!--								&lt;li&gt;Selecciona la deuda a pagar, confirma y ¡Listo!&lt;/li&gt;--&gt; &lt;!--								--&gt; &lt;!--							&lt;/ol&gt;--&gt; &lt;!--						&lt;/div&gt;--&gt; &lt;!--						&lt;div class="tab-pane fade" id="scotiabank-channel-3" role="tabpanel" aria-labelledby="nav-3-tab"&gt;--&gt; &lt;!--							&lt;h3 class="d-none"&gt;Agentes&lt;/h3&gt;--&gt; &lt;!--							&lt;ol&gt;--&gt; &lt;!--								&lt;li&gt;Acércate a un agente de Scotiabank e indica que deseas pagar al servicio de recaudación de Kashio Perú o indica nuestro  RUC 20602393799.&lt;/li&gt;--&gt; &lt;!--								&lt;li&gt;Indica tu código de pago.&lt;/li&gt;--&gt; &lt;!--                                &lt;li&gt;Indica monto total, moneda a pagar y ¡Listo! &lt;/li&gt;--&gt; &lt;!--								&lt;li&gt;Recibe el voucher de pago de la operación.&lt;/li&gt;--&gt; &lt;!--							&lt;/ol&gt;--&gt; &lt;!--						&lt;/div&gt;--&gt; &lt;!--						&lt;div class="tab-pane fade" id="scotiabank-channel-4" role="tabpanel" aria-labelledby="nav-4-tab"&gt;--&gt; &lt;!--							&lt;h3 class="d-none"&gt;Ventanilla&lt;/h3&gt;--&gt; &lt;!--							&lt;ol&gt;--&gt; &lt;!--								&lt;li&gt;Acércate a una oficina o agencia del Scotiabank e indica que deseas pagar al servicio de recaudación de KASHIO PERU.&lt;/li&gt;--&gt; &lt;!--								&lt;li&gt;Proporciona tu número de DNI, RUC, teléfono o código único según corresponda y elije la deuda que quieres pagar.&lt;/li&gt;--&gt; &lt;!--								&lt;li&gt;Elije el tipo de moneda y el moto a pagar.&lt;/li&gt;--&gt; &lt;!--								&lt;li&gt;Recibe el voucher de pago de la operación.&lt;/li&gt;--&gt; &lt;!--							&lt;/ol&gt;--&gt; &lt;!--						&lt;/div&gt;--&gt; &lt;!--					&lt;/div&gt;--&gt; &lt;!--				&lt;/div&gt;--&gt; &lt;!--			&lt;!&ndash; ##################################### FIN SBK ####################################### &ndash;&gt; --&gt; &lt;!-- ##################################### INIT RPP ####################################### --&gt; &lt;!-- ##################################### Eliminación de Rappi Bank<br/>
+				&lt;div id="instrucciones-rappibank" class="d-none"&gt; <br/>
+								<br/>
+					&lt;div class="instrucciones-titulo text-center bg-rappibank text-white"&gt;<br/>
+						Pasos a seguir para pagar en &lt;span&gt;&lt;img src="../img/logos/rappibank-inverse.svg?version=09242021" alt=""&gt;&lt;/span&gt;<br/>
+					&lt;/div&gt;			<br/>
+					<br/>
+					&lt;nav class="tabs"&gt;<br/>
+						&lt;div class="nav nav-tabs nav-fill" id="nav-tab-1" role="tablist"&gt;<br/>
+							&lt;a class="nav-item nav-link active" id="rappibank-channel-1-tab" data-toggle="tab" href="#rappibank-channel-1" role="tab" aria-controls="rappibank-channel-1" aria-selected="true"&gt;<br/>
+								&lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="smartphone-icon"&gt;<br/>
+									&lt;path<br/>
+										d="M17 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2Z"<br/>
+										stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /&gt;<br/>
+									&lt;path d="M12 18H12.01" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round"<br/>
+										stroke-linejoin="round" /&gt;<br/>
+								&lt;/svg&gt;<br/>
+								&lt;p class="d-none d-sm-inline"&gt;Banca Móvil&lt;/p&gt;						<br/>
+							&lt;/a&gt;<br/>
+						&lt;/div&gt;<br/>
+					&lt;/nav&gt;<br/>
+<br/>
+					&lt;div id="nav-tabContent" class="tab-content p-3" &gt;<br/>
+						&lt;div class="tab-pane fade show active" id="rappibank-channel-1" role="tabpanel" aria-labelledby="nav-1-tab"&gt;<br/>
+							&lt;h3 class="d-none"&gt;Banca Móvil&lt;/h3&gt;<br/>
+							&lt;ol&gt;<br/>
+								&lt;li&gt;Ingresa a tu app de Rappibank desde Rappi.&lt;/li&gt;<br/>
+								&lt;li&gt;Dale click a &lt;b&gt;"Cuenta"&lt;/b&gt; y selecciona la cuenta que deseas utilizar para pagar la deuda.&lt;/li&gt;<br/>
+								&lt;li&gt;Ubica la opción &lt;b&gt;"Pagar Servicios"&lt;/b&gt; y luego clic en &lt;b&gt;"ver más"&lt;/b&gt;.&lt;/li&gt;<br/>
+								&lt;li&gt;En el buscador coloca &lt;b&gt;"kashio"&lt;/b&gt; y elige la moneda de tu deuda pendiente.&lt;/li&gt;<br/>
+								&lt;li&gt;Colocar tu código de pago en el campo de DNI, RUC, TEL.&lt;/li&gt;<br/>
+								&lt;li&gt;Selecciona tu monto a pagar y listo.&lt;/li&gt;<br/>
+							&lt;/ol&gt;<br/>
+						&lt;/div&gt;<br/>
+					&lt;/div&gt;<br/>
+<br/>
+				&lt;/div&gt;<br/>
+				####################################### --&gt; &lt;!-- ##################################### FIN RPP ####################################### --&gt; &lt;!-- ##################################### INIT KASNET ####################################### --&gt;<br/>
+     &lt;div id="instrucciones-kasnet" class="d-none"&gt;<br/>
+      &lt;div class="instrucciones-titulo text-center bg-kasnet text-white"&gt;<br/>
+       Pasos a seguir para pagar en &lt;span&gt;&lt;img src="../img/logos/kasnet-inverse.png?version=09242021" alt=""&gt;&lt;/span&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;nav class="tabs"&gt;<br/>
+       &lt;div class="nav nav-tabs nav-fill" id="nav-tab-1" role="tablist"&gt;&lt;!--  --<br/>
+							&lt;a class="nav-item nav-link " id="kasnet-channel-1-tab" data-toggle="tab" href="#kasnet-channel-1" role="tab" aria-controls="kasnet-channel-1" aria-selected="true"&gt;<br/>
+								&lt;i class="fas fa-w fa-lg fa-mobile"&gt;&lt;/i&gt;&lt;br&gt;<br/>
+								&lt;p class="d-none d-sm-inline"&gt;Banca Móvil&lt;/p&gt;						<br/>
+							&lt;/a&gt;<br/>
+							&lt;a class="nav-item nav-link" id="kasnet-channel-2-tab" data-toggle="tab" href="#kasnet-channel-2" role="tab" aria-controls="kasnet-channel-2" aria-selected="false"&gt;<br/>
+								&lt;i class="fas fa-w fa-lg fa-laptop"&gt;&lt;/i&gt;&lt;br&gt;<br/>
+								&lt;p class="d-none d-sm-inline"&gt;Banca Web&lt;/p&gt;<br/>
+							&lt;/a&gt;<br/>
+							&lt;!--  --&gt; &lt;a class="nav-item nav-link active" id="kasnet-channel-3-tab" data-toggle="tab" href="#kasnet-channel-3" role="tab" aria-controls="kasnet-channel-3" aria-selected="false"&gt;<br/>
+         &lt;svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="credit-card-icon"&gt;&lt;g clip-path="url(#clip0_368_2660)"&gt;<br/>
+           &lt;path d="M21.0942 2H4.65578C4.19691 2 3.79693 2.3123 3.68563 2.75746L2.18563 8.75746C2.02785 9.38861 2.50514 10 3.15571 10H3.875V20H21.875V10H22.5942C23.2448 10 23.7222 9.38861 23.5644 8.75746L22.0644 2.75746C21.9531 2.3123 21.5531 2 21.0942 2Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M22.875 10L21.8231 10C21.2308 10 20.6776 10.296 20.3491 10.7889V10.7889C19.6478 11.8408 18.1022 11.8408 17.4009 10.7889L17.375 10.75C17.1371 10.3932 16.6129 10.3932 16.375 10.75V10.75C15.6614 11.8204 14.0886 11.8204 13.375 10.75V10.75C13.1371 10.3932 12.6129 10.3932 12.375 10.75V10.75C11.6614 11.8204 10.0886 11.8204 9.375 10.75V10.75C9.13714 10.3932 8.61286 10.3932 8.375 10.75L8.34907 10.7889C7.64783 11.8408 6.10217 11.8408 5.40093 10.7889V10.7889C5.07236 10.296 4.51921 10 3.92686 10L3.875 10" stroke="#C2C9D6" stroke-width="2"&gt;&lt;/path&gt;<br/>
+          &lt;/g&gt; &lt;defs&gt;<br/>
+           &lt;clippath id="clip0_368_2660"&gt;<br/>
+            &lt;rect width="24" height="24" fill="white" transform="translate(0.875)"&gt;&lt;/rect&gt;<br/>
+           &lt;/clippath&gt;<br/>
+          &lt;/defs&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Agentes y Bodegas&lt;/p&gt;&lt;/a&gt; &lt;!--  --<br/>
+							&lt;a class="nav-item nav-link" id="kasnet-channel-4-tab" data-toggle="tab" href="#kasnet-channel-4" role="tab" aria-controls="kasnet-channel-4" aria-selected="false"&gt;<br/>
+								&lt;i class="fas fa-w fa-lg fa-landmark"&gt;&lt;/i&gt;&lt;br&gt;<br/>
+								&lt;p class="d-none d-sm-inline"&gt;Ventanilla&lt;/p&gt;<br/>
+							&lt;/a&gt;<br/>
+							&lt;!--  --&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/nav&gt;<br/>
+      &lt;div id="nav-tabContent" class="tab-content p-3"&gt;&lt;!--  --<br/>
+						&lt;div class="tab-pane fade show active" id="kasnet-channel-1" role="tabpanel" aria-labelledby="nav-1-tab"&gt;<br/>
+							&lt;h3 class="d-none"&gt;Banca Móvil&lt;/h3&gt;<br/>
+							&lt;ol&gt;<br/>
+								&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/li&gt;<br/>
+								&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/li&gt;<br/>
+								&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/li&gt;<br/>
+								&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/li&gt;<br/>
+							&lt;/ol&gt;<br/>
+						&lt;/div&gt;<br/>
+<br/>
+						&lt;div class="tab-pane fade" id="kasnet-channel-2" role="tabpanel" aria-labelledby="nav-2-tab"&gt;<br/>
+							&lt;h3 class="d-none"&gt;Banca Web&lt;/h3&gt;<br/>
+							&lt;ol&gt;<br/>
+								&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/li&gt;<br/>
+								&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/li&gt;<br/>
+								&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/li&gt;<br/>
+								&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/li&gt;<br/>
+							&lt;/ol&gt;<br/>
+						&lt;/div&gt;<br/>
+						&lt;!--  --&gt;<br/>
+       &lt;div class="tab-pane fade show active" id="kasnet-channel-3" role="tabpanel" aria-labelledby="nav-3-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Agentes&lt;/h3&gt;<br/>
+        &lt;ol&gt;<br/>
+         &lt;li&gt;Acércate a un agente de KASNET e indica que deseas pagar al servicio de recaudación de Kashio Perú.&lt;/li&gt;<br/>
+         &lt;li&gt;Indica el Código de Agente de Kashio: &lt;strong&gt;220044 &lt;/strong&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;Indica tu código de pago.&lt;/li&gt;<br/>
+         &lt;li&gt;Indica monto total, moneda a pagar y ¡Listo!&lt;/li&gt;<br/>
+         &lt;li&gt;Recibe el voucher de pago de la operación.&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;&lt;!--  --<br/>
+						&lt;div class="tab-pane fade" id="kasnet-channel-4" role="tabpanel" aria-labelledby="nav-4-tab"&gt;<br/>
+							&lt;h3 class="d-none"&gt;Ventanilla&lt;/h3&gt;<br/>
+							&lt;ol&gt;<br/>
+								&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/li&gt;<br/>
+								&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/li&gt;<br/>
+								&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/li&gt;<br/>
+								&lt;li&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. &lt;/li&gt;<br/>
+							&lt;/ol&gt;<br/>
+						&lt;/div&gt;<br/>
+						&lt;!--  --&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;&lt;!-- ##################################### FIN KASNET ####################################### --&gt; &lt;!-- ##################################### INIT TAMBO ####################################### --&gt; &lt;!--<br/>
+				&lt;div id="instrucciones-tambo" class="d-none"&gt;<br/>
+					<br/>
+					&lt;div class="instrucciones-titulo text-center bg-tambo text-white"&gt;<br/>
+						Pasos a seguir para pagar en &lt;span&gt;&lt;img src="../img/logos/tambo-inverse.png?version=09242021" alt=""&gt;&lt;/span&gt;<br/>
+					&lt;/div&gt;<br/>
+<br/>
+					&lt;nav class="tabs"&gt;<br/>
+						&lt;div class="nav nav-tabs nav-fill" id="nav-tab-1" role="tablist"&gt;<br/>
+							&lt;a class="nav-item nav-link active" id="tambo-channel-3-tab" data-toggle="tab" href="#tambo-channel-3" role="tab" aria-controls="tambo-channel-3" aria-selected="false"&gt;<br/>
+								&lt;svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="credit-card-icon"&gt;<br/>
+									&lt;g clip-path="url(#clip0_368_2660)"&gt;<br/>
+										&lt;path<br/>
+											d="M21.0942 2H4.65578C4.19691 2 3.79693 2.3123 3.68563 2.75746L2.18563 8.75746C2.02785 9.38861 2.50514 10 3.15571 10H3.875V20H21.875V10H22.5942C23.2448 10 23.7222 9.38861 23.5644 8.75746L22.0644 2.75746C21.9531 2.3123 21.5531 2 21.0942 2Z"<br/>
+											stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /&gt;<br/>
+										&lt;path<br/>
+											d="M22.875 10L21.8231 10C21.2308 10 20.6776 10.296 20.3491 10.7889V10.7889C19.6478 11.8408 18.1022 11.8408 17.4009 10.7889L17.375 10.75C17.1371 10.3932 16.6129 10.3932 16.375 10.75V10.75C15.6614 11.8204 14.0886 11.8204 13.375 10.75V10.75C13.1371 10.3932 12.6129 10.3932 12.375 10.75V10.75C11.6614 11.8204 10.0886 11.8204 9.375 10.75V10.75C9.13714 10.3932 8.61286 10.3932 8.375 10.75L8.34907 10.7889C7.64783 11.8408 6.10217 11.8408 5.40093 10.7889V10.7889C5.07236 10.296 4.51921 10 3.92686 10L3.875 10"<br/>
+											stroke="#C2C9D6" stroke-width="2" /&gt;<br/>
+									&lt;/g&gt;<br/>
+									&lt;defs&gt;<br/>
+										&lt;clipPath id="clip0_368_2660"&gt;<br/>
+											&lt;rect width="24" height="24" fill="white" transform="translate(0.875)" /&gt;<br/>
+										&lt;/clipPath&gt;<br/>
+									&lt;/defs&gt;<br/>
+								&lt;/svg&gt;<br/>
+								&lt;p class="d-none d-sm-inline"&gt;Tiendas&lt;/p&gt;<br/>
+							&lt;/a&gt;<br/>
+						&lt;/div&gt;<br/>
+					&lt;/nav&gt;<br/>
+<br/>
+					&lt;div id="nav-tabContent" class="tab-content p-3" &gt;<br/>
+<br/>
+						&lt;div class="tab-pane fade show active" id="tambo-channel-3" role="tabpanel" aria-labelledby="nav-3-tab"&gt;<br/>
+							&lt;h3 class="d-none"&gt;Agentes&lt;/h3&gt;<br/>
+							&lt;ol&gt;<br/>
+								&lt;li&gt;Acércate a una tienda Tambo+ e indica que deseas realizar pagos por agente BBVA a la empresa "Kashio".&lt;/li&gt;<br/>
+								&lt;li&gt;Indica tu código de pago.&lt;/li&gt;<br/>
+								&lt;li&gt;Elige la Deuda a pagar y ¡Listo! &lt;/li&gt;<br/>
+                                &lt;li&gt;Recibe el voucher de pago de la operación.&lt;/li&gt;<br/>
+							&lt;/ol&gt;<br/>
+						&lt;/div&gt;<br/>
+<br/>
+					&lt;/div&gt;<br/>
+<br/>
+				&lt;/div&gt;<br/>
+				--&gt; &lt;!-- ##################################### FIN TAMBO ####################################### --&gt; &lt;!-- ##################################### INIT  CAJA AREQUIPA ####################################### --&gt;<br/>
+     &lt;div id="instrucciones-caja-arequipa" class="d-none"&gt;<br/>
+      &lt;div class="instrucciones-titulo text-center bg-caja-arequipa text-white"&gt;<br/>
+       Pasos a seguir para pagar en &lt;span class="span-logo-caja-arequipa-inverse"&gt; &lt;img src="../img/logos/caja-arequipa-inverse.svg" alt="caja-arequipa"&gt;&lt;/span&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;nav class="tabs"&gt;<br/>
+       &lt;div class="nav nav-tabs nav-fill" id="nav-tab-1" role="tablist"&gt;&lt;a class="nav-item nav-link active" id="caja-arequipa-channel-1-tab" data-toggle="tab" href="#caja-arequipa-channel-1" role="tab" aria-controls="caja-arequipa-channel-1" aria-selected="true"&gt;<br/>
+         &lt;svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="smartphone-icon"&gt;&lt;path d="M17 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt; &lt;path d="M12 18H12.01" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Banca Móvil&lt;/p&gt;&lt;/a&gt; &lt;a class="nav-item nav-link" id="caja-arequipa-channel-2-tab" data-toggle="tab" href="#caja-arequipa-channel-2" role="tab" aria-controls="caja-arequipa-channel-2" aria-selected="false"&gt;<br/>
+         &lt;svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="monitor-icon"&gt;&lt;path d="M20.125 3H4.125C3.02043 3 2.125 3.89543 2.125 5V15C2.125 16.1046 3.02043 17 4.125 17H20.125C21.2296 17 22.125 16.1046 22.125 15V5C22.125 3.89543 21.2296 3 20.125 3Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt; &lt;path d="M8.125 21H16.125" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt; &lt;path d="M12.125 17V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Homebanking&lt;/p&gt;&lt;/a&gt; &lt;a class="nav-item nav-link" id="caja-arequipa-channel-3-tab" data-toggle="tab" href="#caja-arequipa-channel-3" role="tab" aria-controls="caja-arequipa-channel-3" aria-selected="false"&gt;<br/>
+         &lt;svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="credit-card-icon"&gt;&lt;g clip-path="url(#clip0_368_2660)"&gt;<br/>
+           &lt;path d="M21.0942 2H4.65578C4.19691 2 3.79693 2.3123 3.68563 2.75746L2.18563 8.75746C2.02785 9.38861 2.50514 10 3.15571 10H3.875V20H21.875V10H22.5942C23.2448 10 23.7222 9.38861 23.5644 8.75746L22.0644 2.75746C21.9531 2.3123 21.5531 2 21.0942 2Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M22.875 10L21.8231 10C21.2308 10 20.6776 10.296 20.3491 10.7889V10.7889C19.6478 11.8408 18.1022 11.8408 17.4009 10.7889L17.375 10.75C17.1371 10.3932 16.6129 10.3932 16.375 10.75V10.75C15.6614 11.8204 14.0886 11.8204 13.375 10.75V10.75C13.1371 10.3932 12.6129 10.3932 12.375 10.75V10.75C11.6614 11.8204 10.0886 11.8204 9.375 10.75V10.75C9.13714 10.3932 8.61286 10.3932 8.375 10.75L8.34907 10.7889C7.64783 11.8408 6.10217 11.8408 5.40093 10.7889V10.7889C5.07236 10.296 4.51921 10 3.92686 10L3.875 10" stroke="#C2C9D6" stroke-width="2"&gt;&lt;/path&gt;<br/>
+          &lt;/g&gt; &lt;defs&gt;<br/>
+           &lt;clippath id="clip0_368_2660"&gt;<br/>
+            &lt;rect width="24" height="24" fill="white" transform="translate(0.875)"&gt;&lt;/rect&gt;<br/>
+           &lt;/clippath&gt;<br/>
+          &lt;/defs&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Agentes&lt;/p&gt;&lt;/a&gt; &lt;a class="nav-item nav-link" id="caja-arequipa-channel-4-tab" data-toggle="tab" href="#caja-arequipa-channel-4" role="tab" aria-controls="caja-arequipa-channel-4" aria-selected="false"&gt;<br/>
+         &lt;svg width="25" height="24" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="home-icon"&gt;&lt;g clip-path="url(#clip0_368_2663)"&gt;<br/>
+           &lt;path d="M12.375 1L1.875 9H22.875L12.375 1Z" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M3.875 21V9H20.875V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M7.875 21V9H16.875V21" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+           &lt;path d="M1.875 22H22.875" stroke="#C2C9D6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"&gt;&lt;/path&gt;<br/>
+          &lt;/g&gt; &lt;defs&gt;<br/>
+           &lt;clippath id="clip0_368_2663"&gt;<br/>
+            &lt;rect width="24" height="24" fill="white" transform="translate(0.125)"&gt;&lt;/rect&gt;<br/>
+           &lt;/clippath&gt;<br/>
+          &lt;/defs&gt;<br/>
+         &lt;/svg&gt;&lt;p class="d-none d-sm-inline"&gt;Agencias&lt;/p&gt;&lt;/a&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/nav&gt;<br/>
+      &lt;div id="nav-tabContent" class="tab-content p-3"&gt;<br/>
+       &lt;div class="tab-pane fade show active" id="caja-arequipa-channel-1" role="tabpanel" aria-labelledby="nav-1-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Banca Móvil&lt;/h3&gt;<br/>
+        &lt;ol&gt;<br/>
+         &lt;li&gt;Ingresa a la aplicación móvil de Caja Arequipa y selecciona la opción de &lt;b&gt;“Pagos”&lt;/b&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;Elige la opción de &lt;b&gt;“Pagos de Servicios e Instituciones”&lt;/b&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;Escoge opción &lt;b&gt;“Otros”&lt;/b&gt; y busca &lt;b&gt;“Kashio”&lt;/b&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;Ingresa tu &lt;b&gt;código de pago&lt;/b&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;¡Confirma el monto a pagar y listo!&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="tab-pane fade" id="caja-arequipa-channel-2" role="tabpanel" aria-labelledby="nav-2-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Homebanking&lt;/h3&gt;<br/>
+        &lt;ol&gt;<br/>
+         &lt;li&gt;Ingresa al Homebanking de Caja Arequipa y selecciona la opción de &lt;b&gt;“Pagos”&lt;/b&gt;&lt;/li&gt;<br/>
+         &lt;li&gt;Elige la opción de &lt;b&gt;“Pagos de Servicios e Instituciones”&lt;/b&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;Escoge la opción &lt;b&gt;“Otros”&lt;/b&gt; y busca &lt;b&gt;“Kashio”&lt;/b&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;Ingresa tu &lt;b&gt;código de pago&lt;/b&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;¡Confirma el monto a pagar y listo!&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="tab-pane fade" id="caja-arequipa-channel-3" role="tabpanel" aria-labelledby="nav-3-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Agentes&lt;/h3&gt;<br/>
+        &lt;ol&gt;<br/>
+         &lt;li&gt;Indica que deseas realizar &lt;b&gt;“Pago Servicios”&lt;/b&gt; a &lt;b&gt;“Kashio”&lt;/b&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;Indica tu &lt;b&gt;código de pago&lt;/b&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;Valida importe del pago que deseas realizar.&lt;/li&gt;<br/>
+         &lt;li&gt;Realiza el pago y recibe tu comprobante.&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="tab-pane fade" id="caja-arequipa-channel-4" role="tabpanel" aria-labelledby="nav-4-tab"&gt;<br/>
+        &lt;h3 class="d-none"&gt;Agencias&lt;/h3&gt;<br/>
+        &lt;ol&gt;<br/>
+         &lt;li&gt;Indica que deseas realizar &lt;b&gt;“Pago Recaudo”&lt;/b&gt; a &lt;b&gt;“Kashio”&lt;/b&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;Indica tu &lt;b&gt;código de pago&lt;/b&gt;.&lt;/li&gt;<br/>
+         &lt;li&gt;Confirma el monto de la deuda que deseas pagar.&lt;/li&gt;<br/>
+         &lt;li&gt;Realiza el pago y recibe tu comprobante.&lt;/li&gt;<br/>
+        &lt;/ol&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div class="bg-lightgray border-bluex p-2 extra-info"&gt;&lt;small&gt; (*) Pagos en Agencias Bancarias de los bancos BCP e Interbank tendrán un cargo por comisión bancaria de S/.3.60. &lt;br&gt;<br/>
+         Si tuviera algún problema con su pago vía Kashio, por favor escribir a soporte@kashio.net &lt;/small&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;&lt;!-- ##################################### FIN CAJA AREQUIPA ####################################### --&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/section&gt;&lt;!-- channels --&gt; &lt;span id="redirect"&gt; &lt;/span&gt;<br/>
+  &lt;/div&gt;&lt;!-- container --&gt;<br/>
+  &lt;div class="container py-2"&gt;<br/>
+   &lt;section class="plataformas "&gt;<br/>
+    &lt;div class="p-2 text-center legal-text"&gt;&lt;a class="my-2 terms-conditions-btn" id="terms-conditions-text" data-toggle="modal" data-target="#exampleModalCenter"&gt;Términos y condiciones&lt;/a&gt; | &lt;a class="my-2 privacy-policy-btn" id="privacy-policy-text" data-toggle="modal" data-target="#exampleModalCenter"&gt;Políticas de privacidad&lt;/a&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/section&gt;<br/>
+  &lt;/div&gt;<br/>
+  &lt;div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"&gt;<br/>
+   &lt;div class="modal-dialog modal-dialog-centered modal-xl " role="document"&gt;<br/>
+    &lt;div class="modal-content"&gt;<br/>
+     &lt;div class="modal-header bg-blue text-white p-1"&gt;&lt;button type="button" class="close text-white" data-dismiss="modal" aria-label="Close"&gt; &lt;span aria-hidden="true"&gt;×&lt;/span&gt; &lt;/button&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="modal-body p-0 " style="background: trasparent; height:80vh"&gt;&lt;span id="iframeview"&gt;&lt;/span&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt;&lt;!-- Optional JavaScript --&gt; &lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;<br/>
+  &lt;script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"&gt;<br/>
+&lt;/script&gt;<br/>
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"&gt;&lt;/script&gt;<br/>
+  &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"&gt;&lt;/script&gt;<br/>
+  &lt;script src="../js/jquery.countdown.min.js"&gt; &lt;/script&gt;<br/>
+  &lt;script src="../js/functions.js?version=09242021"&gt; &lt;/script&gt;<br/>
+  &lt;script src="../js/client_service.js"&gt; &lt;/script&gt;<br/>
+  &lt;script src="../js/kashio-iframe.js"&gt; &lt;/script&gt;<br/>
+  &lt;script&gt;<br/>
+	$(document).ready(function () {<br/>
+		$('[data-toggle="popover"]').popover();<br/>
+	});<br/>
+<br/>
+	$('#kashiopopover').popover().click(function () {<br/>
+		setTimeout(function () {<br/>
+			$('#kashiopopover').popover('hide');<br/>
+		}, 3000);<br/>
+	});<br/>
+&lt;/script&gt;&lt;!-- Google tag (gtag.js) --&gt;<br/>
+  &lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-6BPNXB7KRY"&gt;&lt;/script&gt;<br/>
+  &lt;script&gt;<br/>
+	window.dataLayer = window.dataLayer || [];<br/>
+	function gtag() { dataLayer.push(arguments); }<br/>
+	gtag('js', new Date());<br/>
+<br/>
+	gtag('config', 'G-6BPNXB7KRY');<br/>
+&lt;/script&gt;<br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>

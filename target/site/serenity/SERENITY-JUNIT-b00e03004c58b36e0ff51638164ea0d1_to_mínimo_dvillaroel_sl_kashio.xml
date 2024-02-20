@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="0" name="Poder generar el código de depósito" skipped="0" tests="4" time="0.1" timestamp="2024-02-14 03:43:43"><testcase name="Validar que genere el código de pago con el monto mínimo"/></testsuite>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="1" failures="0" name="Poder generar el código de depósito" skipped="0" tests="1" time="5.6" timestamp="2024-02-19 07:29:50"><testcase name="Validar que permita depositar mediante tarjeta con el monto máximo"><error message="element click intercepted: Element &lt;button id=&quot;depositButton&quot; class=&quot;jsx-bbc0a237ca44e34d clmc-btn-primary clmc-disabled&quot;&gt;...&lt;/button&gt; is not clickable at point (768, 607). Other element would receive the click: &lt;div class=&quot;jsx-bbc0a237ca44e34d clmc-flex-center containerBtnPasarelaFlex&quot;&gt;...&lt;/div&gt;&#10;  (Session info: chrome=121.0.6167.185)&#10;Build info: version: '4.12.0', revision: '249f2a7d1b*'&#10;System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Command: [b02882735822dd6505d810ed308f9b91, clickElement {id=B78C1B15E8C088EC93786EAE31AF9569_element_163}]&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\RCARRA~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55821}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55821/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}&#10;Element: [[ChromeDriver: chrome on windows (b02882735822dd6505d810ed308f9b91)] -&gt; xpath: //button[@id='depositButton']]&#10;Session ID: b02882735822dd6505d810ed308f9b91" type="org.openqa.selenium.ElementClickInterceptedException">element click intercepted: Element &lt;button id="depositButton" class="jsx-bbc0a237ca44e34d clmc-btn-primary clmc-disabled"&gt;...&lt;/button&gt; is not clickable at point (768, 607). Other element would receive the click: &lt;div class="jsx-bbc0a237ca44e34d clmc-flex-center containerBtnPasarelaFlex"&gt;...&lt;/div&gt;
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b02882735822dd6505d810ed308f9b91, clickElement {id=B78C1B15E8C088EC93786EAE31AF9569_element_163}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\RCARRA~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55821}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55821/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (b02882735822dd6505d810ed308f9b91)] -&gt; xpath: //button[@id='depositButton']]
+Session ID: b02882735822dd6505d810ed308f9b91</error><system-err>element click intercepted: Element &lt;button id="depositButton" class="jsx-bbc0a237ca44e34d clmc-btn-primary clmc-disabled"&gt;...&lt;/button&gt; is not clickable at point (768, 607). Other element would receive the click: &lt;div class="jsx-bbc0a237ca44e34d clmc-flex-center containerBtnPasarelaFlex"&gt;...&lt;/div&gt;
+  (Session info: chrome=121.0.6167.185)
+Build info: version: '4.12.0', revision: '249f2a7d1b*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [b02882735822dd6505d810ed308f9b91, clickElement {id=B78C1B15E8C088EC93786EAE31AF9569_element_163}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 121.0.6167.185, chrome: {chromedriverVersion: 121.0.6167.184 (057a8ae7deb..., userDataDir: C:\Users\RCARRA~1\AppData\L...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:55821}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55821/devtoo..., se:cdpVersion: 121.0.6167.185, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (b02882735822dd6505d810ed308f9b91)] -&gt; xpath: //button[@id='depositButton']]
+Session ID: b02882735822dd6505d810ed308f9b91&#13;
+atlantic.main.util.PageObjectUtil.seleniumClick(PageObjectUtil.java:63)&#13;
+atlantic.main.page.PageDeposito.seleccionarBotonDepositoSiguiente(PageDeposito.java:66)&#13;
+net.thucydides.core.steps.BaseMethodRunner.invokeMethod(BaseMethodRunner.java:18)&#13;
+net.thucydides.core.steps.NormalMethodRunner.invokeMethodAndNotifyFailures(NormalMethodRunner.java:18)&#13;
+net.thucydides.core.steps.StepInterceptor.runNormalMethod(StepInterceptor.java:420)&#13;
+net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:195)&#13;
+net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:92)&#13;
+atlantic.main.step.StepDeposito.seleccionarDepositoSiguiente(StepDeposito.java:23)&#13;
+net.thucydides.core.steps.BaseMethodRunner.invokeMethod(BaseMethodRunner.java:18)&#13;
+net.thucydides.core.steps.NormalMethodRunner.invokeMethodAndNotifyFailures(NormalMethodRunner.java:18)&#13;
+net.thucydides.core.steps.StepInterceptor.runNormalMethod(StepInterceptor.java:420)&#13;
+net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:195)&#13;
+net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:92)&#13;
+com.atlantic.test.definition.DefDepositoTarjeta.selecciono_botón_siguiente_tarjeta(DefDepositoTarjeta.java:32)&#13;
+io.cucumber.java.Invoker.doInvoke(Invoker.java:66)&#13;
+io.cucumber.java.Invoker.invoke(Invoker.java:24)&#13;
+io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)&#13;
+io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)&#13;
+io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)&#13;
+io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)&#13;
+io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)&#13;
+io.cucumber.core.runner.TestStep.run(TestStep.java:56)&#13;
+io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)&#13;
+io.cucumber.core.runner.TestCase.run(TestCase.java:84)&#13;
+io.cucumber.core.runner.Runner.runPickle(Runner.java:75)&#13;
+io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:137)&#13;
+io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)&#13;
+io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:137)&#13;
+io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)&#13;
+io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)&#13;
+io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)&#13;
+io.cucumber.junit.CucumberSerenityBaseRunner.runChild(CucumberSerenityBaseRunner.java:330)&#13;
+io.cucumber.junit.CucumberSerenityBaseRunner.runChild(CucumberSerenityBaseRunner.java:51)&#13;
+com.atlantic.test.runner.RunPersonalizar.run(RunPersonalizar.java:36)&#13;
+</system-err></testcase></testsuite>
