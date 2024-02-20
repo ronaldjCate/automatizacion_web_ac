@@ -1,64 +1,27 @@
 # Authors: @Ronald
-# Project: Api testing
-# Warnings:
-# 1. It is NOT allow declaring variables in this template
-# 2. It is OPTIONAL declare parameters
-# 3. Pass POOL as parameters do not declare in this template
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
 
-name: '$(Rev:rr)' #  ( Not change it)
-############################
-# Main Parameters
-# DO NOT use object type params
-############################
-parameters:
-  - name: applicationVersion
-    displayName: 'Application Version'
-    type: string
-    default: '1.2.0'
+trigger:
+  - main
 
-  - name: environment
-    displayName: 'Environment Name'
-    type: string
-    default: dev
-    values:
-      - dev
-      - staging
-      - uat
+pool:
+  vmImage: ubuntu-latest
 
-  - name: tags
-    displayName: 'Scenarios to run'
-    type: string
-    default: '@regresion'
-###############
-#
-#  Variables
-#
-###############
-variables:
-  - group: ibkteam-devops-uat
-  - group: artifactory
+steps:
+  - script: echo Hello, world!
+    displayName: 'Run a one-line script'
 
-#########
-# It is not allow Trigger or Pull Request execution.
-########
-trigger: none
-pr: none
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+    displayName: 'Run a multi-line script'
 
-lockBehavior: sequential
-
-stages:
-  - stage:
-    condition: |
-      in(variables['Build.Reason'],'Manual')
-    displayName: 'STAGE: Execute API Tests on ${{ parameters.environment }}'
-    jobs:
-     - template: ../templates/jobs/template-job-execute-functional-test-withcheckout.yml
-       parameters:
-        environment: ${{ parameters.environment }}
-        tags: ${{ parameters.tags }}
-        azDevopsPrivateAgent:
-          enable: true
-          poolName: apdevsecopsuat01
-#          containerJobName: ${{ parameters.azDevopsContainerJobName }}
-        job:
-          vmImage: 'ubuntu-latest'
+  - task: Maven@3
+    displayName: 'Run Cucumber tests'
+    inputs:
+      mavenPomFile: 'pom.xml'  # Ruta al archivo pom.xml si no está en el directorio raíz
+      goals: 'test'  # El objetivo de Maven que se va a ejecutar
+      options: '-Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=$(ESCENARIO) -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue=com.atlantic'
