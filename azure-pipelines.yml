@@ -20,23 +20,14 @@ steps:
     displayName: 'Run a multi-line script'
   - script: |
       if [ ! -f "src/test/resources/driver/chromedriver.exe" ]; then
-        echo "Chromedriver not found. Downloading..."
-        # Descarga del Chromedriver desde la fuente oficial
-        wget -O chromedriver.zip https://chromedriver.storage.googleapis.com/LATEST_RELEASE
-        latest_version=$(cat chromedriver.zip)
-        wget https://chromedriver.storage.googleapis.com/$latest_version/chromedriver_win32.zip
-        unzip chromedriver_win32.zip -d src/test/resources/driver/
-        rm chromedriver.zip chromedriver_win32.zip
+      echo "Chromedriver not found. Downloading..."
+      CHROME_VERSION=$(google-chrome --version | awk '{ print $3 }' | cut -d '.' -f1)
+      CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
+      wget -q --continue -P /usr/local/bin/ "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
+      unzip -o /usr/local/bin/chromedriver_linux64.zip -d /usr/local/bin/
+      chmod +x /usr/local/bin/chromedriver
       fi
-      if [ ! -f "src/test/resources/driver/geckodriver.exe" ]; then
-        echo "Geckodriver not found. Downloading..."
-        # Descarga del Geckodriver desde la fuente oficial
-        latest_version=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep "tag_name" | sed -E 's/.*"([^"]+)".*/\1/')
-        wget https://github.com/mozilla/geckodriver/releases/download/$latest_version/geckodriver-$latest_version-win64.zip
-        unzip geckodriver-$latest_version-win64.zip -d src/test/resources/driver/
-        rm geckodriver-$latest_version-win64.zip
-      fi
-    displayName: 'Check and download drivers'
+    displayName: 'Check and download Chromedriver'
 
   - task: Maven@3
     displayName: 'Run Cucumber tests'
