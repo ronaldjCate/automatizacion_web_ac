@@ -11,7 +11,7 @@ pool:
   name: my-agent-pool
   vmImage: 'SVBNVSTGAPP01'
   demands:
-  - Agent.Version -equals 3.232.1
+  - Agent.Version -equals 2.163.1
 
 steps:
   - script: echo Hello, world!
