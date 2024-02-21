@@ -31,4 +31,5 @@ steps:
       javaHomeOption: 'JDKVersion'
       jdkVersionOption: '1.17'
       jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'C:\Users\dvillarroel.PE280\Documents\Instaladores\jdk-17.0.8'
     
