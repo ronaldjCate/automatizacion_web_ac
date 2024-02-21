@@ -26,7 +26,7 @@ steps:
     displayName: 'Run Serenity tests'
     inputs:
       mavenPomFile: 'pom.xml'
-      goals: 'test'
+      goals: 'clean verify serenity:aggregate'
       options: '-Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=@ValidarInicioSesionUsuario -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue=com.atlantic'
       javaHomeOption: 'JDKVersion'
       jdkVersionOption: 'default'
