@@ -12,7 +12,7 @@ pool:
   vmImage: 'SVBNVSTGAPP01'
   demands:
   - maven
-  - Agent.Version -gt 2.163.1
+  - Agent.Version -gtVersion 2.163.1
   
   
 
