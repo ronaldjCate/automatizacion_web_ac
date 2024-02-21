@@ -24,13 +24,13 @@ steps:
     
 
   - task: Maven@3
-    displayName: 'Run Cucumber tests'
+    displayName: 'Run Serenity tests'
     inputs:
-      mavenPomFile: 'pom.xml'  # Ruta al archivo pom.xml si no está en el directorio raíz
-      goals: 'test'  # El objetivo de Maven que se va a ejecutar
+      mavenPomFile: 'pom.xml'
+      goals: 'test'
       options: '-Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=@ValidarInicioSesionUsuario -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue=com.atlantic'
       javaHomeOption: 'JDKVersion'
       jdkVersionOption: '1.17'
-      jdkArchitectureOption: 'x64'
+      jdkArchitectureOption: 'X64'
 
       
