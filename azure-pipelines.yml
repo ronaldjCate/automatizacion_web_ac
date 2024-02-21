@@ -10,19 +10,7 @@ trigger:
 pool:
   name: my-agent-pool
   vmImage: 'SVBNVSTGAPP01'
-  
-  jobs:
-  - job: Instalar_Java_17
-    displayName: Instalar Java 17 si no está presente
-    pool:
-      vmImage: 'windows-latest'
-    steps:
-    - task: UseJavaVersion@1
-      inputs:
-        versionSpec: '17'
-        jdkArchitectureOption: 'x64'
-        jdkSourceOption: 'installer'
-        failIfNotFound: false
+
 steps:
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
