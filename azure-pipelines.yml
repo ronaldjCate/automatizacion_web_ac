@@ -10,10 +10,14 @@ trigger:
 pool:
   name: my-agent-pool
   vmImage: 'SVBNVSTGAPP01'
+  demand:
+  - maven
+  - agent.version -gtVersion 2.163.1
   
 steps:
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
+    
 
   - script: |
       echo Add other tasks to build, test, and deploy your project.
