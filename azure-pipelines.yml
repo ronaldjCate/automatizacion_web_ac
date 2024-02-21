@@ -9,7 +9,6 @@ trigger:
 
 pool:
   name: my-agent-pool
-  vmImage: 'SVBNVSTGAPP01'
   demands:
   - maven
   - Agent.Version -gtVersion 2.163.1
