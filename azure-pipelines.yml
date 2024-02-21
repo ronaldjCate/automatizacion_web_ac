@@ -28,8 +28,12 @@ steps:
       mavenPomFile: 'pom.xml'
       goals: 'test'
       options: '-Dcucumber.features=src/test/resources/features/ -Dcucumber.filter.tags=@ValidarInicioSesionUsuario -Dcucumber.plugin=json:target/site/result.json -Dcucumber.glue=com.atlantic'
-      javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.17'
-      jdkArchitectureOption: 'x64'
-      jdkSourceOption: 'installer'
+      
+  - task: JavaToolInstaller@0
+    inputs:
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.17'
+    jdkArchitectureOption: 'x64'
+  
+      
     
