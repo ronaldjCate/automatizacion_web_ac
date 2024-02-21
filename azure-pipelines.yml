@@ -10,11 +10,7 @@ trigger:
 pool:
   name: my-agent-pool
   vmImage: 'SVBNVSTGAPP01'
-  demands: 
-   - maven 
-   - Agent.Version -gtVersion 2.163.1
   
-
 steps:
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
@@ -23,9 +19,7 @@ steps:
       echo Add other tasks to build, test, and deploy your project.
       echo See https://aka.ms/yaml      
     displayName: 'Run a multi-line script'
-  
-    
-
+      
   - task: Maven@3
     displayName: 'Run Serenity tests'
     inputs:
