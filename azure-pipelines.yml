@@ -9,6 +9,8 @@ trigger:
 
 pool:
   name: my-agent-pool
+  vmImage: 'SVBNVSTGAPP01'
+  
   
 
 steps:
